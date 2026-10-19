@@ -33,6 +33,8 @@ commands.
   suite.
 - `.github/workflows/claude-review.yml` — calls a reusable workflow from
   `PowerUserZ/.github`, pinned by commit SHA (do not switch back to a tag).
+- `.github/workflows/ai-review.yml` — caller for poweruserz/ai-review (Codex
+  and GLM review every PR); tracks `@main` on purpose, see Landmines.
 - `TASKS.md` — Turkish-language list of suggested code-review improvements;
   treat as backlog notes, not authoritative spec.
 
@@ -169,6 +171,10 @@ them; the comments at each site explain why.
   `shellcheck.yml` (`ludeeus/action-shellcheck@00cae5...`) and
   `claude-review.yml` (the `PowerUserZ/.github` reusable workflow) are
   pinned for supply-chain reasons. Commits `7991fe3`, `b109d15`.
+  The one exception is `ai-review.yml`, which tracks
+  `poweruserz/ai-review@main` by the owner's decision (2026-10-19): that
+  repo is owner-only, and the comment in the caller gives the reason. Do
+  not pin it.
 - **`shellcheck` is invoked with `-x`** so the source-following is enabled,
   and the daemon's filename has no extension — CI lists it explicitly under
   `additional_files`. If you rename the daemon, update the workflow.
